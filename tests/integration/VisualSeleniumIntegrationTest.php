@@ -15,7 +15,8 @@ class VisualSeleniumIntegrationTest extends PHPUnit_Extensions_VisualSelenium2Te
     ];
 
     protected function setUp () {
-        parent::setUp(__DIR__.'/../../output/');
+        parent::setUp();
+        $this->setUpScreenshotPath(__DIR__.'/../../output/');
         $this->setHost('192.168.56.2');
         $this->setBrowserUrl('http://www.google.com');
     }

@@ -19,8 +19,7 @@ class PHPUnit_Extensions_VisualSelenium2TestCase extends \PHPUnit_Extensions_Sel
      */
     private $imageBuilder;
 
-    protected function setUp ($path = null) {
-        parent::setUp();
+    protected function setUpScreenshotPath ($path = null) {
         $this->imageBuilder = null;
         if ($path != null) {
             $this->imageBuilder = new ImageBuilder(new ImageBuilderFactory($this, $path, new FileManager()));

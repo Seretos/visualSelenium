@@ -1,12 +1,12 @@
 
 
-Code Coverage Report:     
-  2016-09-19 23:16:43     
-                          
- Summary:                 
-  Classes: 100.00% (3/3)  
-  Methods: 100.00% (16/16)
-  Lines:   100.00% (83/83)
+Code Coverage Report:    
+  2016-09-19 23:50:03    
+                         
+ Summary:                
+  Classes: 75.00% (3/4)  
+  Methods: 88.89% (16/18)
+  Lines:   90.22% (83/92)
 
 \visualSelenium\builder::ImageBuilder
   Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 26/ 26)
