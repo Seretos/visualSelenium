@@ -1,0 +1,31 @@
+{
+  "name": "Seretos/visualSelenium",
+  "description": "a helper tool to take screenshots while running selenium tests",
+  "keywords": [
+    "selenium"
+  ],
+  "homepage": "https://github.com/Seretos/visualSelenium/",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Arne von Appen",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "5.6.*",
+    "phpunit/phpunit": "4.8.*",
+    "phpunit/phpunit-selenium": "1.4.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "visualSelenium\\": ""
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
+}
