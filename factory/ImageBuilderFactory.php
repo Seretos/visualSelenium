@@ -10,7 +10,7 @@ namespace visualSelenium\factory;
 
 
 use fileManager\FileManager;
-use fileManager\model\Image;
+use fileManager\Image;
 use visualSelenium\model\ImageMessage;
 
 class ImageBuilderFactory {
