@@ -31,5 +31,15 @@ class VisualSeleniumIntegrationTest extends PHPUnit_Extensions_VisualSelenium2Te
         $this->createScreenshot('click button');
         $this->url("/maps");
         $this->createScreenshot('call '.$this->getBrowserUrl().'/maps');
+
+        $this->assertSame(true,
+                          file_exists(__DIR__.
+                                      '/../../output/VisualSeleniumIntegrationTest/myTest/firefox/00000000_call_http___www.google.com_.png'));
+        $this->assertSame(true,
+                          file_exists(__DIR__.
+                                      '/../../output/VisualSeleniumIntegrationTest/myTest/firefox/00000001_click_button.png'));
+        $this->assertSame(true,
+                          file_exists(__DIR__.
+                                      '/../../output/VisualSeleniumIntegrationTest/myTest/firefox/00000002_call_http___www.google.com_maps.png'));
     }
 }

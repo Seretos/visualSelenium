@@ -30,5 +30,15 @@ class VisualSeleniumIntegrationTest_WithoutPath extends PHPUnit_Extensions_Visua
         $this->createScreenshot('click button');
         $this->url("/maps");
         $this->createScreenshot('call '.$this->getBrowserUrl().'/maps');
+
+        $this->assertSame(false,
+                          file_exists(__DIR__.
+                                      '/../../output/VisualSeleniumIntegrationTest_WithoutPath/myTest/firefox/00000000_call_http___www.google.com_.png'));
+        $this->assertSame(false,
+                          file_exists(__DIR__.
+                                      '/../../output/VisualSeleniumIntegrationTest_WithoutPath/myTest/firefox/00000001_click_button.png'));
+        $this->assertSame(false,
+                          file_exists(__DIR__.
+                                      '/../../output/VisualSeleniumIntegrationTest_WithoutPath/myTest/firefox/00000002_call_http___www.google.com_maps.png'));
     }
 }

@@ -118,8 +118,12 @@ class ImageBuilderTest extends PHPUnit_Framework_TestCase {
                              ->with($message);
         }
 
+        $filename = '00000004';
+        if ($message != '') {
+            $filename .= '_'.preg_replace('/[^a-zA-Z0-9\-\._]/', '_', $message);
+        }
         $mockImage->expects($this->once())
                   ->method('save')
-                  ->with('pathDirectory/00000004.png');
+                  ->with('pathDirectory/'.$filename.'.png');
     }
 }

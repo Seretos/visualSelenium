@@ -31,12 +31,14 @@ class ImageBuilder {
         $image = $this->factory->createImage();
         $image->loadFromString($imageStr);
 
+        $filename = sprintf('%08d', $this->screenshotIndex);
         if ($message != '') {
             $imageMessage = $this->factory->createImageMessage($image);
             $imageMessage->drawMessage($message);
+            $filename .= '_'.preg_replace('/[^a-zA-Z0-9\-\._]/', '_', $message);
         }
 
-        $image->save($this->factory->getPath().'/'.sprintf('%08d', $this->screenshotIndex).'.png');
+        $image->save($this->factory->getPath().'/'.$filename.'.png');
         $this->screenshotIndex++;
     }
 }
