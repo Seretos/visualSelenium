@@ -1,0 +1,64 @@
+Humbug running test suite to generate logs and code coverage data...
+Humbug has completed the initial test run successfully.
+Tests: 6 Line Coverage: 100.00%
+Humbug is analysing source files...
+Mutation Testing is commencing on 3 files...
+(.: killed, M: escaped, S: uncovered, E: fatal error, T: timed out)
+...........................E...........
+39 mutations were generated:
+      38 mutants were killed
+       0 mutants were not covered by tests
+       0 covered mutants were not detected
+       1 fatal errors were encountered
+       0 time outs were encountered
+
+Metrics:
+    Mutation Score Indicator (MSI): 100%
+    Mutation Code Coverage: 100%
+    Covered Code MSI: 100%
+
+Remember that some mutants will inevitably be harmless (i.e. false positives).
+Time: 1.49 minutes Memory: 4.00MB
+Humbug results are being logged as TEXT to: humbuglog.txt
+
+------
+Errors
+------
+
+
+1) \Humbug\Mutator\Increment\Increment
+Diff on \visualSelenium\model\ImageMessage::calculateMessageLines() in E:\Programmierung\composerProject\vendor\Seretos\visualSelenium\model\ImageMessage.php:
+--- Original
++++ New
+@@ @@
+         $lines = [];
+-        for ($i = 0; $i < $lineCount; $i++) {
++        for ($i = 0; $i < $lineCount; $i--) {
+             $lines[] = substr($message, $i * $lineLength, $lineLength);
+         }
+ 
+         return $lines;
+     }
+ 
+
+The following output was received on stderr:
+
+PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 174 bytes) in E:\Programmierung\composerProject\vendor\Seretos\visualSelenium\model\ImageMessage.php on line 62
+PHP Stack trace:
+PHP   1. {main}() E:\Programmierung\composerProject\vendor\phpunit\phpunit\phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() E:\Programmierung\composerProject\vendor\phpunit\phpunit\phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() E:\Programmierung\composerProject\vendor\phpunit\phpunit\src\TextUI\Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() E:\Programmierung\composerProject\vendor\phpunit\phpunit\src\TextUI\Command.php:149
+PHP   5. PHPUnit_Framework_TestSuite->run() E:\Programmierung\composerProject\vendor\phpunit\phpunit\src\TextUI\TestRunner.php:440
+PHP   6. PHPUnit_Framework_TestSuite->run() E:\Programmierung\composerProject\vendor\phpunit\phpunit\src\Framework\TestSuite.php:747
+PHP   7. PHPUnit_Framework_TestCase->run() E:\Programmierung\composerProject\vendor\phpunit\phpunit\src\Framework\TestSuite.php:747
+PHP   8. PHPUnit_Framework_TestResult->run() E:\Programmierung\composerProject\vendor\phpunit\phpunit\src\Framework\TestCase.php:724
+PHP   9. PHPUnit_Framework_TestCase->runBare() E:\Programmierung\composerProject\vendor\phpunit\phpunit\src\Framework\TestResult.php:612
+PHP  10. PHPUnit_Framework_TestCase->runTest() E:\Programmierung\composerProject\vendor\phpunit\phpunit\src\Framework\TestCase.php:768
+PHP  11. ReflectionMethod->invokeArgs() E:\Programmierung\composerProject\vendor\phpunit\phpunit\src\Framework\TestCase.php:909
+PHP  12. ImageMessageTest->drawMessage() E:\Programmierung\composerProject\vendor\phpunit\phpunit\src\Framework\TestCase.php:909
+PHP  13. visualSelenium\model\ImageMessage->drawMessage() E:\Programmierung\composerProject\vendor\Seretos\visualSelenium\tests\model\ImageMessageTest.php:100
+PHP  14. visualSelenium\model\ImageMessage->calculateMessageLines() E:\Programmierung\composerProject\vendor\Seretos\visualSelenium\model\ImageMessage.php:31
+PHP  15. substr() E:\Programmierung\composerProject\vendor\Seretos\visualSelenium\model\ImageMessage.php:62
+
+

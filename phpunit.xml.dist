@@ -13,16 +13,16 @@
             <directory>tests/factory/</directory>
             <directory>tests/model/</directory>
         </testsuite>
-        <!--<testsuite name="visual selenium - integration tests">
+        <testsuite name="visual selenium - integration tests">
             <directory>tests/integration/</directory>
-        </testsuite>-->
+        </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory>model</directory>
             <directory>factory</directory>
             <directory>builder</directory>
-            <!--<file>PHPUnit_Extensions_VisualSelenium2TestCase.php</file>-->
+            <file>PHPUnit_Extensions_VisualSelenium2TestCase.php</file>
         </whitelist>
     </filter>
 </phpunit>

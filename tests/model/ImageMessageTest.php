@@ -1,5 +1,5 @@
 <?php
-use fileManager\model\Image;
+use fileManager\Image;
 use visualSelenium\model\ImageMessage;
 
 /**
@@ -183,6 +183,16 @@ class ImageMessageTest extends PHPUnit_Framework_TestCase {
     /**
      * @test
      */
+    public function calculateMessageLines_withOneCharacter () {
+        $method = $this->reflection->getMethod('calculateMessageLines');
+        $method->setAccessible(true);
+
+        $this->assertSame(['1'], $method->invokeArgs($this->imageMessage, ['1', 1]));
+    }
+
+    /**
+     * @test
+     */
     public function calculateMessageLines () {
         $method = $this->reflection->getMethod('calculateMessageLines');
         $method->setAccessible(true);
@@ -198,6 +208,16 @@ class ImageMessageTest extends PHPUnit_Framework_TestCase {
         $method = $this->reflection->getMethod('calculateMessageLines');
         $method->setAccessible(true);
 
-        $this->assertSame(['test1'], $method->invokeArgs($this->imageMessage, ['test1', 10]));
+        $this->assertSame(['1234567890'], $method->invokeArgs($this->imageMessage, ['1234567890', 10]));
+    }
+
+    /**
+     * @test
+     */
+    public function calculateMessageLines_withTwoLines () {
+        $method = $this->reflection->getMethod('calculateMessageLines');
+        $method->setAccessible(true);
+
+        $this->assertSame(['1234567890','1'], $method->invokeArgs($this->imageMessage, ['12345678901', 10]));
     }
 }

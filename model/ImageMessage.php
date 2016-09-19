@@ -9,7 +9,7 @@
 namespace visualSelenium\model;
 
 
-use fileManager\model\Image;
+use fileManager\Image;
 
 class ImageMessage {
     private $image;
@@ -59,11 +59,7 @@ class ImageMessage {
 
         $lines = [];
         for ($i = 0; $i < $lineCount; $i++) {
-            $length = $lineLength;
-            if (($i + 1) * $lineLength > strlen($message)) {
-                $length = strlen($message) - ($i * $lineLength);
-            }
-            $lines[] = substr($message, $i * $lineLength, $length);
+            $lines[] = substr($message, $i * $lineLength, $lineLength);
         }
 
         return $lines;

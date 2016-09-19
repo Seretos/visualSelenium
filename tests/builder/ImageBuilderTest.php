@@ -1,5 +1,5 @@
 <?php
-use fileManager\model\Image;
+use fileManager\Image;
 use visualSelenium\builder\ImageBuilder;
 use visualSelenium\factory\ImageBuilderFactory;
 use visualSelenium\model\ImageMessage;
@@ -42,6 +42,10 @@ class ImageBuilderTest extends PHPUnit_Framework_TestCase
         $this->builder = new ImageBuilder($this->mockFactory);
 
         $this->reflection = new ReflectionClass(ImageBuilder::class);
+
+        $indexProperty = $this->reflection->getProperty('screenshotIndex');
+        $indexProperty->setAccessible(true);
+        $this->assertSame(0, $indexProperty->getValue($this->builder));
     }
 
     /**
