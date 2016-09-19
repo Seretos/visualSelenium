@@ -8,14 +8,22 @@
              highLowerBound="70"/>
     </logging>
     <testsuites>
+        <testsuite name="integrationtest">
+            <file>tests/integration/VisualSeleniumIntegrationTest.php</file>
+        </testsuite>
+    </testsuites>
+    <testsuites>
         <testsuite name="unit tests">
-            <file>tests/VisualSeleniumIntegrationTest.php</file>
+            <directory>tests/builder/</directory>
+            <directory>tests/factory/</directory>
+            <directory>tests/model/</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory>model</directory>
             <directory>factory</directory>
+            <directory>builder</directory>
         </whitelist>
     </filter>
 </phpunit>

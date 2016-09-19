@@ -21,6 +21,18 @@ class ImageBuilderFactory {
         $this->directory = $directory;
     }
 
+    public function createImage () {
+        $image = new Image();
+
+        return $image;
+    }
+
+    public function createImageMessage (Image $image) {
+        $imageMessage = new ImageMessage($image);
+
+        return $imageMessage;
+    }
+
     public function getPath () {
         return $this->directory.get_class($this->test).'/'.$this->test->getName().'/'.$this->test->getBrowser().'/';
     }
@@ -39,17 +51,5 @@ class ImageBuilderFactory {
         if (!file_exists($this->getPath())) {
             mkdir($this->getPath(), 0755, true);
         }
-    }
-
-    public function createImage () {
-        $image = new Image();
-
-        return $image;
-    }
-
-    public function createImageMessage (Image $image) {
-        $imageMessage = new ImageMessage($image);
-
-        return $imageMessage;
     }
 }
