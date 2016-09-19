@@ -9,6 +9,7 @@
 namespace visualSelenium;
 
 
+use fileManager\FileManager;
 use visualSelenium\builder\ImageBuilder;
 use visualSelenium\factory\ImageBuilderFactory;
 
@@ -20,6 +21,15 @@ class PHPUnit_Extensions_VisualSelenium2TestCase extends \PHPUnit_Extensions_Sel
 
     protected function setUp ($path = null) {
         parent::setUp();
-        $this->imageBuilder = new ImageBuilder(new ImageBuilderFactory($this, $path));
+        $this->imageBuilder = null;
+        if ($path != null) {
+            $this->imageBuilder = new ImageBuilder(new ImageBuilderFactory($this, $path, new FileManager()));
+        }
+    }
+
+    public function createScreenshot ($message = '') {
+        if ($this->imageBuilder instanceof ImageBuilder) {
+            $this->imageBuilder->createScreenshot($message);
+        }
     }
 }

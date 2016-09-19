@@ -9,16 +9,19 @@
 namespace visualSelenium\factory;
 
 
-use visualSelenium\model\Image;
+use fileManager\FileManager;
+use fileManager\model\Image;
 use visualSelenium\model\ImageMessage;
 
 class ImageBuilderFactory {
     private $test;
     private $directory;
+    private $fileManager;
 
-    public function __construct (\PHPUnit_Extensions_Selenium2TestCase $test, $directory) {
+    public function __construct (\PHPUnit_Extensions_Selenium2TestCase $test, $directory, FileManager $manager) {
         $this->test = $test;
         $this->directory = $directory;
+        $this->fileManager = $manager;
     }
 
     public function createImage () {
@@ -34,7 +37,8 @@ class ImageBuilderFactory {
     }
 
     public function getPath () {
-        return $this->directory.get_class($this->test).'/'.$this->test->getName().'/'.$this->test->getBrowser().'/';
+        return $this->directory.$this->fileManager->getClassName($this->test).'/'.$this->test->getName().'/'.
+               $this->test->getBrowser().'/';
     }
 
     public function getTest () {
@@ -42,14 +46,14 @@ class ImageBuilderFactory {
     }
 
     public function resetDirectory () {
-        if (file_exists($this->getPath())) {
-            array_map('unlink', glob($this->getPath()."*.*"));
+        if ($this->fileManager->fileExists($this->getPath())) {
+            $this->fileManager->clearDirectory($this->getPath());
         }
     }
 
     public function createDirectory () {
-        if (!file_exists($this->getPath())) {
-            mkdir($this->getPath(), 0755, true);
+        if (!$this->fileManager->fileExists($this->getPath())) {
+            $this->fileManager->createDirectory($this->getPath(), 0755, true);
         }
     }
 }

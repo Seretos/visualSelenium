@@ -1,5 +1,5 @@
 <?php
-use visualSelenium\model\Image;
+use fileManager\model\Image;
 use visualSelenium\model\ImageMessage;
 
 /**

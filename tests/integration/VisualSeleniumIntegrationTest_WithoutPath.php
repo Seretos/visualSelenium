@@ -1,21 +1,20 @@
 <?php
+use visualSelenium\PHPUnit_Extensions_VisualSelenium2TestCase;
+
 /**
  * Created by PhpStorm.
  * User: aappen
- * Date: 17.09.16
- * Time: 22:40
+ * Date: 19.09.16
+ * Time: 15:57
  */
-
-use visualSelenium\PHPUnit_Extensions_VisualSelenium2TestCase;
-
-class VisualSeleniumIntegrationTest extends PHPUnit_Extensions_VisualSelenium2TestCase {
+class VisualSeleniumIntegrationTest_WithoutPath extends PHPUnit_Extensions_VisualSelenium2TestCase {
     public static $browsers = [
         ['browserName' => 'firefox'],
         // ['browserName' => 'chrome']
     ];
 
     protected function setUp () {
-        parent::setUp(__DIR__.'/../../output/');
+        parent::setUp();
         $this->setHost('192.168.56.2');
         $this->setBrowserUrl('http://www.google.com');
     }

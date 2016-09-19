@@ -9,6 +9,8 @@
 namespace visualSelenium\model;
 
 
+use fileManager\model\Image;
+
 class ImageMessage {
     private $image;
     private $font;

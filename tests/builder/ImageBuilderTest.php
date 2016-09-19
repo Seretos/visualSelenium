@@ -1,7 +1,7 @@
 <?php
+use fileManager\model\Image;
 use visualSelenium\builder\ImageBuilder;
 use visualSelenium\factory\ImageBuilderFactory;
-use visualSelenium\model\Image;
 use visualSelenium\model\ImageMessage;
 
 /**
