@@ -47,12 +47,12 @@ class ImageBuilderFactoryTest extends PHPUnit_Framework_TestCase {
     public function getPath () {
         $this->mockTest->expects($this->once())
                        ->method('toString')
-                       ->will($this->returnValue('mockTestClass::mockTestName'));
+                       ->will($this->returnValue('test\mockTestClass::mockTestName'));
         $this->mockTest->expects($this->once())
                        ->method('getBrowser')
                        ->will($this->returnValue('mockTestBrowser'));
 
-        $this->assertSame('directorymockTestClass::mockTestName/mockTestBrowser/', $this->factory->getPath());
+        $this->assertSame('directorytest/mockTestClass::mockTestName/mockTestBrowser/', $this->factory->getPath());
     }
 
     /**

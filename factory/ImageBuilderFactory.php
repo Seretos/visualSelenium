@@ -37,7 +37,7 @@ class ImageBuilderFactory {
     }
 
     public function getPath () {
-        return $this->directory.$this->test->toString().'/'.
+        return $this->directory.str_replace('\\','/',$this->test->toString()).'/'.
                $this->test->getBrowser().'/';
     }
 
