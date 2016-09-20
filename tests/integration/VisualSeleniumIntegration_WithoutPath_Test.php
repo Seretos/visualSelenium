@@ -7,7 +7,7 @@ use visualSelenium\PHPUnit_Extensions_VisualSelenium2TestCase;
  * Date: 19.09.16
  * Time: 15:57
  */
-class VisualSeleniumIntegrationTest_WithoutPath extends PHPUnit_Extensions_VisualSelenium2TestCase {
+class VisualSeleniumIntegration_WithoutPath_Test extends PHPUnit_Extensions_VisualSelenium2TestCase {
     public static $browsers = [
         ['browserName' => 'firefox'],
         // ['browserName' => 'chrome']
@@ -33,12 +33,12 @@ class VisualSeleniumIntegrationTest_WithoutPath extends PHPUnit_Extensions_Visua
 
         $this->assertSame(false,
                           file_exists(__DIR__.
-                                      '/../../output/VisualSeleniumIntegrationTest_WithoutPath/myTest/firefox/00000000_call_http___www.google.com_.png'));
+                                      '/../../output/VisualSeleniumIntegrationTest_WithoutPath::myTest/firefox/00000000_call_http___www_google_com_.png'));
         $this->assertSame(false,
                           file_exists(__DIR__.
-                                      '/../../output/VisualSeleniumIntegrationTest_WithoutPath/myTest/firefox/00000001_click_button.png'));
+                                      '/../../output/VisualSeleniumIntegrationTest_WithoutPath::myTest/firefox/00000001_click_button.png'));
         $this->assertSame(false,
                           file_exists(__DIR__.
-                                      '/../../output/VisualSeleniumIntegrationTest_WithoutPath/myTest/firefox/00000002_call_http___www.google.com_maps.png'));
+                                      '/../../output/VisualSeleniumIntegrationTest_WithoutPath::myTest/firefox/00000002_call_http___www_google_com_maps.png'));
     }
 }

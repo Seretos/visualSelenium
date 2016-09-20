@@ -46,17 +46,13 @@ class ImageBuilderFactoryTest extends PHPUnit_Framework_TestCase {
      */
     public function getPath () {
         $this->mockTest->expects($this->once())
-                       ->method('getName')
-                       ->will($this->returnValue('mockTestName'));
+                       ->method('toString')
+                       ->will($this->returnValue('mockTestClass::mockTestName'));
         $this->mockTest->expects($this->once())
                        ->method('getBrowser')
                        ->will($this->returnValue('mockTestBrowser'));
-        $this->mockFileManager->expects($this->once())
-                              ->method('getClassName')
-                              ->with($this->mockTest)
-                              ->will($this->returnValue('testClass'));
 
-        $this->assertSame('directorytestClass/mockTestName/mockTestBrowser/', $this->factory->getPath());
+        $this->assertSame('directorymockTestClass::mockTestName/mockTestBrowser/', $this->factory->getPath());
     }
 
     /**
@@ -64,24 +60,20 @@ class ImageBuilderFactoryTest extends PHPUnit_Framework_TestCase {
      */
     public function resetDirectory_withoutDirectory () {
         $this->mockTest->expects($this->once())
-                       ->method('getName')
-                       ->will($this->returnValue('mockTestName'));
+                       ->method('toString')
+                       ->will($this->returnValue('mockTestClass::mockTestName'));
         $this->mockTest->expects($this->once())
                        ->method('getBrowser')
                        ->will($this->returnValue('mockTestBrowser'));
-        $this->mockFileManager->expects($this->any())
-                              ->method('getClassName')
-                              ->with($this->mockTest)
-                              ->will($this->returnValue('testClass'));
 
         $this->mockFileManager->expects($this->any())
                               ->method('fileExists')
-                              ->with('directorytestClass/mockTestName/mockTestBrowser/')
+                              ->with('directorymockTestClass::mockTestName/mockTestBrowser/')
                               ->will($this->returnValue(false));
 
         $this->mockFileManager->expects($this->never())
                               ->method('clearDirectory')
-                              ->with('directorytestClass/mockTestName/mockTestBrowser/');
+                              ->with('directorymockTestClass::mockTestName/mockTestBrowser/');
 
         $this->factory->resetDirectory();
     }
@@ -91,24 +83,20 @@ class ImageBuilderFactoryTest extends PHPUnit_Framework_TestCase {
      */
     public function resetDirectory () {
         $this->mockTest->expects($this->any())
-                       ->method('getName')
-                       ->will($this->returnValue('mockTestName'));
+                       ->method('toString')
+                       ->will($this->returnValue('mockTestClass::mockTestName'));
         $this->mockTest->expects($this->any())
                        ->method('getBrowser')
                        ->will($this->returnValue('mockTestBrowser'));
-        $this->mockFileManager->expects($this->any())
-                              ->method('getClassName')
-                              ->with($this->mockTest)
-                              ->will($this->returnValue('testClass'));
 
         $this->mockFileManager->expects($this->any())
                               ->method('fileExists')
-                              ->with('directorytestClass/mockTestName/mockTestBrowser/')
+                              ->with('directorymockTestClass::mockTestName/mockTestBrowser/')
                               ->will($this->returnValue(true));
 
         $this->mockFileManager->expects($this->once())
                               ->method('clearDirectory')
-                              ->with('directorytestClass/mockTestName/mockTestBrowser/');
+                              ->with('directorymockTestClass::mockTestName/mockTestBrowser/');
 
         $this->factory->resetDirectory();
     }
@@ -118,19 +106,15 @@ class ImageBuilderFactoryTest extends PHPUnit_Framework_TestCase {
      */
     public function createDirectory_directoryExists () {
         $this->mockTest->expects($this->any())
-                       ->method('getName')
-                       ->will($this->returnValue('mockTestName'));
+                       ->method('toString')
+                       ->will($this->returnValue('mockTestClass::mockTestName'));
         $this->mockTest->expects($this->any())
                        ->method('getBrowser')
                        ->will($this->returnValue('mockTestBrowser'));
-        $this->mockFileManager->expects($this->any())
-                              ->method('getClassName')
-                              ->with($this->mockTest)
-                              ->will($this->returnValue('testClass'));
 
         $this->mockFileManager->expects($this->any())
                               ->method('fileExists')
-                              ->with('directorytestClass/mockTestName/mockTestBrowser/')
+                              ->with('directorymockTestClass::mockTestName/mockTestBrowser/')
                               ->will($this->returnValue(true));
 
         $this->factory->createDirectory();
@@ -141,25 +125,20 @@ class ImageBuilderFactoryTest extends PHPUnit_Framework_TestCase {
      */
     public function createDirectory () {
         $this->mockTest->expects($this->any())
-                       ->method('getName')
-                       ->will($this->returnValue('mockTestName'));
+                       ->method('toString')
+                       ->will($this->returnValue('mockTestClass::mockTestName'));
         $this->mockTest->expects($this->any())
                        ->method('getBrowser')
                        ->will($this->returnValue('mockTestBrowser'));
 
         $this->mockFileManager->expects($this->any())
-                              ->method('getClassName')
-                              ->with($this->mockTest)
-                              ->will($this->returnValue('testClass'));
-
-        $this->mockFileManager->expects($this->any())
                               ->method('fileExists')
-                              ->with('directorytestClass/mockTestName/mockTestBrowser/')
+                              ->with('directorymockTestClass::mockTestName/mockTestBrowser/')
                               ->will($this->returnValue(false));
 
         $this->mockFileManager->expects($this->once())
                               ->method('createDirectory')
-                              ->with('directorytestClass/mockTestName/mockTestBrowser/', 0755, true);
+                              ->with('directorymockTestClass::mockTestName/mockTestBrowser/', 0755, true);
 
         $this->factory->createDirectory();
     }

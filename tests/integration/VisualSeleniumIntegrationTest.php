@@ -35,12 +35,12 @@ class VisualSeleniumIntegrationTest extends PHPUnit_Extensions_VisualSelenium2Te
 
         $this->assertSame(true,
                           file_exists(__DIR__.
-                                      '/../../output/VisualSeleniumIntegrationTest/myTest/firefox/00000000_call_http___www.google.com_.png'));
+                                      '/../../output/VisualSeleniumIntegrationTest::myTest/firefox/00000000_call_http___www_google_com_.png'));
         $this->assertSame(true,
                           file_exists(__DIR__.
-                                      '/../../output/VisualSeleniumIntegrationTest/myTest/firefox/00000001_click_button.png'));
+                                      '/../../output/VisualSeleniumIntegrationTest::myTest/firefox/00000001_click_button.png'));
         $this->assertSame(true,
                           file_exists(__DIR__.
-                                      '/../../output/VisualSeleniumIntegrationTest/myTest/firefox/00000002_call_http___www.google.com_maps.png'));
+                                      '/../../output/VisualSeleniumIntegrationTest::myTest/firefox/00000002_call_http___www_google_com_maps.png'));
     }
 }

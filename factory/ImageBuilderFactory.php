@@ -37,7 +37,7 @@ class ImageBuilderFactory {
     }
 
     public function getPath () {
-        return $this->directory.$this->fileManager->getClassName($this->test).'/'.$this->test->getName().'/'.
+        return $this->directory.$this->test->toString().'/'.
                $this->test->getBrowser().'/';
     }
 
