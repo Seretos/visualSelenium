@@ -13,12 +13,6 @@
       "role": "Developer"
     }
   ],
-  "repositories":[
-    {
-      "type": "git",
-      "url": "https://github.com/Seretos/fileManager"
-    }
-  ],
   "require": {
     "php": "5.6.*",
     "Seretos/fileManager": "1.0.x-dev",
