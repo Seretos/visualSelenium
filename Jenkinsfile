@@ -1,3 +1,3 @@
-node('node'){
-    currentBuild.result = "SUCCESS"
+node {
+   echo 'Hello World'
 }
