@@ -10,6 +10,6 @@ node {
         sh 'php composer.phar update --no-dev'
 
         //execute apache ant build bot
-        //sh 'ant'
+        sh 'ant'
     }
 }

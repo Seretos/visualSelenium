@@ -232,6 +232,8 @@
         <exec executable="${phpunit}" resultproperty="result.phpunit" taskname="phpunit">
             <arg value="--configuration"/>
             <arg path="${basedir}/phpunit.xml.dist"/>
+            <arg value="--bootstrap"/>
+            <arg path="${basedir}/vendor/autoload.php"/>
         </exec>
 
         <property name="phpunit.done" value="true"/>
