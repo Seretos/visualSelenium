@@ -5,9 +5,7 @@
  * Date: 18.09.16
  * Time: 06:20
  */
-
 namespace visualSelenium;
-
 
 use fileManager\FileManager;
 use visualSelenium\builder\ImageBuilder;
