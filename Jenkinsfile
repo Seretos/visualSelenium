@@ -4,6 +4,7 @@ node {
         git 'https://github.com/Seretos/visualSelenium'
 
         //execute apache ant build bot
-        ant
+        def ant = new AntBuilder()
+        ant.echo('ant test');
     }
 }
