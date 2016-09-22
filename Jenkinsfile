@@ -1,3 +1,5 @@
 node {
-   echo 'Hello World'
+    stage('Preparation') {
+        git 'https://github.com/Seretos/visualSelenium'
+    }
 }
