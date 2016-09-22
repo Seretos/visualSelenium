@@ -15,7 +15,6 @@ node {
     }
     stage('Results'){
         junit 'build/logs/junit.xml'
-        phploc 'build/logs/phploc.xml'
 
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage', reportFiles: 'index.html', reportName: 'code coverage'])
     }
