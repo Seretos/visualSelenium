@@ -15,8 +15,9 @@ node {
     }
     stage('Results'){
         junit 'build/logs/junit.xml'
-	jdepend 'build/logs/jdepend.xml'
 
+	step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', checkstyle: 'build/logs/checkstyle.xml'])
+//    	step([$class: 'hudson.plugins.dry.DryPublisher', CopyPasteDetector: 'build/logs/phpcpd.xml'])
 	step([$class: 'CloverPublisher', cloverReportDir: 'build/logs', cloverReportFileName: 'clover.xml'])
         //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'build/coverage/', reportFiles: 'index.html', reportName: 'code coverage'])
     }
