@@ -15,8 +15,8 @@ node {
     }
     stage('Results'){
         junit 'build/logs/junit.xml'
-	clover 'build/logs/clover.xml'
 
+	step([$class: 'CloverPublisher', cloverReportDir: 'build/logs', cloverReportFileName: 'clover.xml'])
         //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'build/coverage/', reportFiles: 'index.html', reportName: 'code coverage'])
     }
 }
