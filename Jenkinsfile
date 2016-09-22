@@ -16,6 +16,6 @@ node {
     stage('Results'){
         junit 'build/logs/junit.xml'
 
-        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage', reportFiles: '*', reportName: 'code coverage'])
+        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage', reportName: 'code coverage'])
     }
 }
