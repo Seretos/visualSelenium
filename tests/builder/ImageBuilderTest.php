@@ -53,7 +53,6 @@ class ImageBuilderTest extends PHPUnit_Framework_TestCase
      */
     public function createFileName_withoutMessage()
     {
-        $this->fail('test');
         $method = $this->reflection->getMethod('createFileName');
         $method->setAccessible(true);
 
