@@ -3,7 +3,7 @@ node {
         //download the git repository
         git 'https://github.com/Seretos/visualSelenium'
 
-        //install the composer for this repository
-        wget 'https://getcomposer.org/composer.phar'
+        //execute apache ant build bot
+        ant
     }
 }
