@@ -8,7 +8,8 @@ node {
         //download and execute composer
         sh 'wget http://getcomposer.org/composer.phar'
         sh 'php composer.phar update --no-dev'
-
+    }
+    stage('Validation'){
         //execute apache ant build bot
         sh 'ant'
     }
