@@ -13,4 +13,7 @@ node {
         //execute apache ant build bot
         sh 'ant'
     }
+    stage('Results'){
+        junit 'build/logs/junit.xml'
+    }
 }
