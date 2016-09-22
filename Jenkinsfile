@@ -15,5 +15,6 @@ node {
     }
     stage('Results'){
         junit 'build/logs/junit.xml'
+        phploc 'build/logs/phploc.xml'
     }
 }
