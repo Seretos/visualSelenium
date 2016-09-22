@@ -14,8 +14,6 @@ node {
         sh 'ant'
     }
     stage('Results'){
-	System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "sandbox; default-src 'self';")
-
         junit 'build/logs/junit.xml'
 
 	step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', pattern: '**/build/logs/checkstyle.xml'])
