@@ -1,4 +1,7 @@
 node {
+    stage('Dependencies') {
+        build job: 'fileManager'
+    }
     stage('Preparation') {
         env.PATH = "${tool 'Ant'}/bin:${env.PATH}"
 
